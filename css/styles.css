@@ -1,0 +1,1213 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================================
+   1. VARIABLES GENERALES
+========================================= */
+
+:root {
+    --fondo: #f4f3f8;
+    --blanco: #ffffff;
+    --morado: #6c3fa0;
+    --morado-oscuro: #432365;
+    --morado-claro: #eee5f8;
+    --texto: #292333;
+    --gris: #898494;
+    --verde: #16865b;
+    --rojo: #d74747;
+    --amarillo: #c58a1b;
+    --borde: #e9e5ef;
+    --sombra: 0 8px 25px rgba(42, 25, 62, 0.07);
+}
+
+/* =========================================
+   2. CONFIGURACION GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    transition: 0.2s;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+/* =========================================
+   3. ESTRUCTURA DEL DASHBOARD
+========================================= */
+
+.app-body {
+    min-height: 100vh;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   4. MENU LATERAL
+========================================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+
+    width: 250px;
+    min-width: 250px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 15px;
+
+    background: var(--morado-oscuro);
+    color: white;
+}
+
+/* LOGO */
+
+.brand {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* NAVEGACION */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    color: #d5c9e3;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.nav-link i {
+    width: 20px;
+    font-size: 17px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--morado);
+    color: white;
+}
+
+/* =========================================
+   5. INFORMACION DEL USUARIO
+========================================= */
+
+.sidebar-foot {
+    margin-top: auto;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 5px;
+    margin-bottom: 15px;
+
+    min-width: 0;
+}
+
+.user-chip strong {
+    display: block;
+    color: white;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.user-chip small {
+    display: block;
+    margin-top: 5px;
+
+    color: #c9bbd9;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: var(--morado);
+    color: white;
+
+    font-weight: 800;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 13px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: rgba(255,255,255,0.10);
+    color: white;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background: var(--rojo);
+}
+
+/* =========================================
+   6. CONTENIDO PRINCIPAL
+========================================= */
+
+.content {
+    width: calc(100% - 250px);
+    min-height: 100vh;
+
+    margin-left: 250px;
+    padding: 30px 35px;
+}
+
+/* =========================================
+   7. ENCABEZADO
+========================================= */
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 30px;
+    margin-bottom: 30px;
+
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+
+    box-shadow: var(--sombra);
+}
+
+.content-header h1 {
+    margin: 7px 0;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.content-header p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.content-header .eyebrow {
+    color: var(--morado);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+/* =========================================
+   8. SECCIONES
+========================================= */
+
+.section {
+    display: none;
+    width: 100%;
+}
+
+.section.active {
+    display: block;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    color: var(--morado-oscuro);
+}
+
+/* =========================================
+   9. PANELES
+========================================= */
+
+.panel {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+
+    box-shadow: var(--sombra);
+}
+
+.panel h2 {
+    margin-bottom: 18px;
+
+    color: var(--morado-oscuro);
+    font-size: 19px;
+}
+
+.panel h2 i {
+    margin-right: 8px;
+    color: var(--morado);
+}
+
+.panel p {
+    color: var(--gris);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   10. INICIO
+========================================= */
+
+.hero {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    min-height: 400px;
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(42, 20, 65, 0.96),
+            rgba(93, 54, 130, 0.83)
+        ),
+        url("../img.jpg/imgLogoMoonshine.jpeg") center/cover;
+
+    color: white;
+    border-radius: 15px;
+}
+
+.hero.active {
+    display: flex;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero-text h2 {
+    margin-bottom: 20px;
+
+    color: white;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.2;
+}
+
+.hero-text p {
+    margin-bottom: 30px;
+
+    color: #e1d7eb;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero-text button {
+    padding: 15px 25px;
+
+    background: white;
+    color: var(--morado-oscuro);
+
+    border: none;
+    border-radius: 9px;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hero-image img {
+    width: min(350px, 100%);
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+/* =========================================
+   11. TARJETAS
+========================================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+
+    margin-bottom: 30px;
+}
+
+.card {
+    padding: 25px;
+
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+
+    box-shadow: var(--sombra);
+}
+
+.card i {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 17px;
+
+    background: var(--morado-claro);
+    color: var(--morado);
+
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.card h3,
+.card-value {
+    margin-bottom: 8px;
+
+    color: var(--texto);
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.card p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.card-label {
+    margin-bottom: 8px;
+}
+
+.card-hint {
+    font-size: 11px !important;
+}
+
+/* =========================================
+   12. TABLAS
+========================================= */
+
+.tabla-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 25px;
+
+    background: white;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f7f4fa;
+}
+
+th {
+    padding: 17px 12px;
+
+    color: var(--morado-oscuro);
+    font-size: 12px;
+    font-weight: 700;
+
+    text-align: left;
+}
+
+td {
+    padding: 15px 12px;
+
+    border-bottom: 1px solid var(--borde);
+
+    color: var(--texto);
+    font-size: 13px;
+}
+
+tbody tr:hover {
+    background: #faf8fc;
+}
+
+.img-producto {
+    width: 50px;
+    height: 50px;
+
+    object-fit: cover;
+
+    background: #eee;
+    border-radius: 9px;
+}
+
+/* =========================================
+   13. ESTADOS DE PRODUCTOS
+========================================= */
+
+.estado {
+    display: inline-block;
+
+    padding: 7px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.entrada {
+    color: var(--verde);
+    background: #e4f5ed;
+}
+
+.salida {
+    color: var(--amarillo);
+    background: #fff3d8;
+}
+
+.agotado {
+    color: var(--rojo);
+    background: #fde8e8;
+}
+
+/* =========================================
+   14. BOTONES DE TABLA
+========================================= */
+
+.editar,
+.eliminar {
+    padding: 9px 12px;
+    margin: 2px;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.editar {
+    background: var(--morado-claro);
+    color: var(--morado-oscuro);
+}
+
+.eliminar {
+    background: #fde8e8;
+    color: var(--rojo);
+}
+
+/* =========================================
+   15. FORMULARIOS DE PRODUCTOS
+========================================= */
+
+.agregar-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+
+    padding: 25px;
+
+    background: white;
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.agregar-container input,
+#form-producto input {
+    flex: 1;
+    min-width: 150px;
+
+    padding: 13px;
+
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+.agregar-container input:focus,
+#form-producto input:focus {
+    border-color: var(--morado);
+    box-shadow: 0 0 0 3px rgba(108,63,160,0.08);
+}
+
+.agregar-container input[type="file"],
+#form-producto input[type="file"] {
+    max-width: 230px;
+}
+
+.agregar-container button,
+#form-producto button {
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--morado);
+    color: white;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* FORMULARIO DE PRODUCTOS EN PRODUCTOS.HTML */
+
+#form-producto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+#form-producto button:hover,
+.agregar-container button:hover {
+    background: var(--morado-oscuro);
+}
+
+/* =========================================
+   16. ESTADISTICAS
+========================================= */
+
+.graficas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.grafica-card {
+    min-width: 0;
+    min-height: 300px;
+
+    padding: 25px;
+
+    background: white;
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.grafica-card canvas {
+    width: 100% !important;
+    max-height: 300px;
+}
+
+/* =========================================
+   17. PERFIL
+========================================= */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 20px;
+    margin: 20px 0;
+
+    background: var(--morado-claro);
+    border-radius: 12px;
+}
+
+.profile-avatar {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--morado);
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.profile-header h3 {
+    margin-bottom: 6px;
+    color: var(--morado-oscuro);
+    font-size: 18px;
+}
+
+.profile-header p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+/* TABLA DE INFORMACION */
+
+.info-table {
+    width: 100%;
+    min-width: 0;
+    margin: 20px 0;
+
+    border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+    padding: 16px;
+
+    border-bottom: 1px solid var(--borde);
+
+    text-align: left;
+    font-size: 13px;
+}
+
+.info-table th {
+    width: 30%;
+    background: #f7f4fa;
+    color: var(--morado-oscuro);
+}
+
+.info-table td {
+    color: var(--texto);
+    overflow-wrap: anywhere;
+}
+
+.info-table code {
+    color: var(--morado);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+/* ACCIONES DEL PERFIL */
+
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.profile-actions button {
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--morado-claro);
+    color: var(--morado-oscuro);
+
+    font-weight: 700;
+}
+
+.profile-actions button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.note {
+    margin-top: 15px;
+
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   18. LOGIN Y REGISTRO SUPABASE
+========================================= */
+
+.login-body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(42, 20, 65, 0.96),
+            rgba(108, 63, 160, 0.85)
+        );
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+}
+
+/* LOGO LOGIN */
+
+.auth-logo {
+    margin-bottom: 25px;
+
+    text-align: center;
+    color: white;
+}
+
+.auth-logo img {
+    width: 75px;
+    height: 75px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    margin-bottom: 12px;
+}
+
+.auth-logo h1 {
+    font-size: 27px;
+    letter-spacing: 3px;
+}
+
+.auth-logo p {
+    margin-top: 8px;
+
+    color: #e1d7eb;
+    font-size: 13px;
+}
+
+/* CAJA LOGIN */
+
+.auth-box {
+    padding: 35px;
+
+    background: white;
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.auth-box h2 {
+    margin-bottom: 8px;
+
+    color: var(--morado-oscuro);
+    font-size: 25px;
+}
+
+.auth-description {
+    margin-bottom: 25px;
+
+    color: var(--gris);
+    font-size: 13px;
+}
+
+/* PESTAÑAS LOGIN */
+
+.auth-tabs {
+    display: flex;
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid var(--borde);
+}
+
+.link-btn {
+    padding: 12px 5px;
+
+    border: none;
+    border-bottom: 3px solid transparent;
+
+    background: transparent;
+    color: var(--gris);
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.link-btn.is-active {
+    color: var(--morado);
+    border-bottom-color: var(--morado);
+}
+
+/* FORMULARIOS LOGIN */
+
+#panel-login form,
+#panel-register form {
+    display: flex;
+    flex-direction: column;
+}
+
+#panel-login label,
+#panel-register label {
+    margin: 12px 0 8px;
+
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* CAMPOS LOGIN */
+
+.input-group {
+    display: flex;
+    align-items: center;
+
+    padding: 0 13px;
+    margin-bottom: 8px;
+
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+}
+
+.input-group i {
+    color: var(--morado);
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    min-width: 0;
+
+    padding: 14px 12px;
+
+    border: none;
+    outline: none;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.input-group:focus-within {
+    border-color: var(--morado);
+    box-shadow: 0 0 0 3px rgba(108,63,160,0.08);
+}
+
+/* BOTON LOGIN */
+
+.auth-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: var(--morado);
+    color: white;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background: var(--morado-oscuro);
+}
+
+/* MENSAJES */
+
+.message {
+    padding: 12px;
+    margin-bottom: 15px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+.banner {
+    padding: 12px;
+    margin-bottom: 15px;
+
+    border-radius: 8px;
+
+    background: #fde8e8;
+    color: var(--rojo);
+
+    font-size: 13px;
+}
+
+.auth-footer {
+    margin-top: 22px;
+
+    color: #e1d7eb;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* =========================================
+   19. RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .content {
+        width: calc(100% - 210px);
+        margin-left: 210px;
+        padding: 25px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .graficas {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image img {
+        width: 230px;
+    }
+}
+
+/* =========================================
+   20. RESPONSIVE CELULAR
+========================================= */
+
+@media (max-width: 650px) {
+
+    .app {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        min-width: 100%;
+        min-height: auto;
+
+        padding: 15px;
+    }
+
+    .brand {
+        height: 60px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .nav-link {
+        padding: 12px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    .sidebar-foot {
+        margin-top: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .user-chip {
+        min-width: 0;
+        margin-bottom: 0;
+    }
+
+    .btn-logout {
+        width: auto;
+        min-width: 45px;
+        padding: 12px;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .content-header {
+        padding: 20px;
+    }
+
+    .content-header h1 {
+        font-size: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .graficas {
+        grid-template-columns: 1fr;
+    }
+
+    .hero,
+    .hero.active {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .hero-image img {
+        width: 180px;
+    }
+
+    .agregar-container,
+    #form-producto {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .agregar-container input,
+    .agregar-container button,
+    #form-producto input,
+    #form-producto button {
+        width: 100%;
+        max-width: none;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .info-table th,
+    .info-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .info-table th {
+        width: 40%;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions button {
+        width: 100%;
+    }
+
+    .auth-box {
+        padding: 25px 20px;
+    }
+
+    .auth-logo h1 {
+        font-size: 23px;
+    }
+}
+
+
+/* Acceso al CRUD MVC desde el inventario del dashboard */
+.inventory-table-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.inventory-admin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--morado-claro);
+    color: var(--morado-oscuro);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+.inventory-admin-link:hover {
+    background: var(--morado);
+    color: white;
+}
+@media (min-width: 1200px) {
+    .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moonshine | Acceso administrativo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="login-body">
+
+    <main class="auth-container">
+
+        <div class="auth-logo">
+            <img src="img.jpg/imgLogoMoonshine.jpeg" alt="Logo Moonshine">
+            <h1>MOONSHINE</h1>
+            <p>Sistema de gestión de inventario</p>
+        </div>
+
+        <div class="auth-box">
+
+            <h2>Bienvenido</h2>
+            <p class="auth-description">
+                Ingresa tus datos para acceder al sistema.
+            </p>
+
+            <!-- <div id="config-banner" class="banner" hidden>
+                Falta configurar <strong>js/config.js</strong>.
+            </div> -->
+
+            <div class="auth-tabs">
+                <button type="button"
+                        class="link-btn is-active"
+                        data-tab="login">
+                    Iniciar sesión
+                </button>
+
+                <button type="button"
+                        class="link-btn"
+                        data-tab="register">
+                    Registrarse
+                </button>
+            </div>
+
+            <p id="auth-message" class="message" hidden></p>
+
+            <!-- INICIAR SESIÓN -->
+
+            <section id="panel-login">
+
+                <form id="form-login">
+
+                    <label for="login-email">Correo electrónico</label>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input
+                            id="login-email"
+                            type="email"
+                            placeholder="Ingrese su correo"
+                            required>
+                    </div>
+
+                    <label for="login-password">Contraseña</label>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input
+                            id="login-password"
+                            type="password"
+                            placeholder="Ingrese su contraseña"
+                            required
+                            minlength="6">
+                    </div>
+
+                    <button type="submit" class="auth-button">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Entrar al sistema
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- REGISTRO -->
+
+            <section id="panel-register" hidden>
+
+                <form id="form-register">
+
+                    <label for="register-name">Nombre</label>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input
+                            id="register-name"
+                            type="text"
+                            placeholder="Ingrese su nombre">
+                    </div>
+
+                    <label for="register-email">Correo electrónico</label>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input
+                            id="register-email"
+                            type="email"
+                            placeholder="Ingrese su correo"
+                            required>
+                    </div>
+
+                    <label for="register-password">Contraseña</label>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input
+                            id="register-password"
+                            type="password"
+                            placeholder="Mínimo 6 caracteres"
+                            required
+                            minlength="6">
+                    </div>
+
+                    <label for="register-password2">Confirmar contraseña</label>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input
+                            id="register-password2"
+                            type="password"
+                            placeholder="Repita su contraseña"
+                            required
+                            minlength="6">
+                    </div>
+
+                    <button type="submit" class="auth-button">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Crear cuenta
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+        <footer class="auth-footer">
+            <p>© 2026 Moonshine - Sistema de inventario</p>
+        </footer>
+
+    </main>
+
+    <script src="public/js/config.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="public/js/supabase-client.js"></script>
+
+    <script src="public/js/auth.js"></script>
+
+</body>
+</html>

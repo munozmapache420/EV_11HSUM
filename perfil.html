@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moonshine | Mi perfil</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="app-body">
+
+    <div class="app">
+
+        <!-- MENU LATERAL -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img src="img.jpg/imgLogoMoonshine.jpeg" alt="Moonshine">
+                <span>MOONSHINE</span>
+            </div>
+
+            <nav>
+
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Inicio
+                </a>
+
+                <a class="nav-link active" href="perfil.html">
+                    <i class="fa-solid fa-user"></i>
+                    Mi perfil
+                </a>
+
+            </nav>
+
+            <!-- USUARIO -->
+
+            <div class="sidebar-foot">
+
+                <div class="user-chip">
+
+                    <span id="user-avatar" class="avatar">?</span>
+
+                    <div>
+                        <strong data-user-name>Usuario</strong>
+                        <small data-user-email>—</small>
+                    </div>
+
+                </div>
+
+                <button type="button" id="btn-logout" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- CONTENIDO -->
+
+        <main class="content">
+
+            <header class="content-header">
+
+                <div>
+                    <p class="eyebrow">Cuenta administrativa</p>
+                    <h1>Mi perfil</h1>
+                    <p>Información de tu cuenta en Moonshine.</p>
+                </div>
+
+            </header>
+
+            <!-- INFORMACION DEL PERFIL -->
+
+            <section class="panel">
+
+                <h2>
+                    <i class="fa-solid fa-id-card"></i>
+                    Datos de mi cuenta
+                </h2>
+
+                <div class="profile-header">
+
+                    <span id="profile-avatar" class="profile-avatar">?</span>
+
+                    <div>
+                        <h3 data-user-name>Usuario</h3>
+                        <p data-user-email>—</p>
+                    </div>
+
+                </div>
+
+                <table class="info-table">
+
+                    <tr>
+                        <th>Nombre</th>
+                        <td data-user-name>—</td>
+                    </tr>
+
+                    <tr>
+                        <th>Correo electrónico</th>
+                        <td data-user-email>—</td>
+                    </tr>
+
+                    <tr>
+                        <th>Identificación de usuario</th>
+                        <td>
+                            <code data-user-id>—</code>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <p class="note">
+                    Estos datos son obtenidos de la sesión de Supabase Auth.
+                </p>
+
+            </section>
+
+            <!-- SEGURIDAD -->
+
+            <section class="panel">
+
+                <h2>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Seguridad de la cuenta
+                </h2>
+
+                <p>
+                    Desde aquí podrás consultar la información
+                    de tu cuenta administrativa.
+                </p>
+
+                <div class="profile-actions">
+
+                    <button type="button" disabled>
+                        <i class="fa-solid fa-pen"></i>
+                        Editar perfil
+                    </button>
+
+                    <button type="button" disabled>
+                        <i class="fa-solid fa-key"></i>
+                        Cambiar contraseña
+                    </button>
+
+                </div>
+
+                <p class="note">
+                    Estas acciones son únicamente de muestra y todavía
+                    no tienen funcionalidad.
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <script src="public/js/config.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="public/js/supabase-client.js"></script>
+
+    <script src="public/js/guard.js"></script>
+
+</body>
+
+</html>

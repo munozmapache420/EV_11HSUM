@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moonshine | Gestión de Inventario</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="app-body">
+
+    <div class="app">
+
+        <!-- MENU LATERAL -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img src="img.jpg/imgLogoMoonshine.jpeg" alt="Moonshine">
+                <span>Moonshine</span>
+            </div>
+
+            <nav>
+
+                <a class="nav-link active" href="#inicio"
+                   onclick="mostrarSeccion('inicio')">
+                    <i class="fa-solid fa-house"></i>
+                    Inicio
+                </a>
+
+                <a class="nav-link" href="#inventario"
+                   onclick="mostrarSeccion('inventario')">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    Inventario
+                </a>
+
+                <a class="nav-link" href="#estadisticas"
+                   onclick="mostrarSeccion('estadisticas')">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Estadísticas
+                </a>
+
+            </nav>
+
+            <!-- USUARIO Y CIERRE DE SESION -->
+
+            <div class="sidebar-foot">
+
+                <div class="user-chip">
+
+                    <span id="user-avatar" class="avatar">A</span>
+
+                    <div>
+                        <strong data-user-name>Administrador</strong>
+                        <small data-user-email>admin@moonshine.com</small>
+                    </div>
+
+                </div>
+
+                <button type="button" id="btn-logout" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <div class="content">
+
+            <header class="content-header">
+
+                <div>
+                    <p class="eyebrow">Panel administrativo</p>
+                    <h1>Gestión de Inventario</h1>
+                    <p>Control inteligente de productos y almacenamiento</p>
+                </div>
+
+            </header>
+
+
+            <!-- INICIO -->
+
+            <section class="section active" id="inicio">
+
+                <div class="panel">
+
+                    <h2>CONTROL TOTAL DE INVENTARIO</h2>
+
+                    <p>
+                        Bienvenido a Moonshine. Desde este panel puedes
+                        gestionar productos, controlar existencias,
+                        registrar cambios y consultar estadísticas.
+                    </p>
+
+                    <button type="button"
+                            onclick="mostrarSeccion('inventario')">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        Explorar inventario
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- INVENTARIO -->
+
+            <section class="section" id="inventario">
+
+                <h2>Inventario de productos</h2>
+
+                <!-- RESUMEN -->
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <i class="fa-solid fa-box"></i>
+
+                        <p class="card-label">Total de productos</p>
+
+                        <h3 class="card-value" id="totalProductos">0</h3>
+
+                        <p class="card-hint">Productos registrados</p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <i class="fa-solid fa-warehouse"></i>
+
+                        <p class="card-label">Stock total</p>
+
+                        <h3 class="card-value" id="stockTotal">0</h3>
+
+                        <p class="card-hint">Unidades disponibles</p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <i class="fa-solid fa-dollar-sign"></i>
+
+                        <p class="card-label">Valor del inventario</p>
+
+                        <h3 class="card-value" id="valorInventario">$0</h3>
+
+                        <p class="card-hint">Valor total de existencias</p>
+
+                    </article>
+
+                    <article class="card">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p class="card-label">Productos con stock bajo</p>
+                        <h3 class="card-value" id="stockBajo">0</h3>
+                        <p class="card-hint">Stock igual o menor al mínimo</p>
+                    </article>
+
+                </div>
+
+
+                <!-- TABLA DE PRODUCTOS -->
+
+                <div class="panel">
+
+                    <div class="inventory-table-heading">
+                        <h2>Listado de productos</h2>
+                        <a class="inventory-admin-link" href="index.php?action=productos">
+                            <i class="fa-solid fa-gear"></i> Administrar productos (crear, editar y eliminar)
+                        </a>
+                    </div>
+
+                    <div class="tabla-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>ID categoría</th>
+                                    <th>ID inventario</th>
+                                    <th>Precio compra</th>
+                                    <th>Precio venta</th>
+                                    <th>Stock</th>
+                                    <th>Stock mínimo</th>
+                                    <th>Estado</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="tablaProductos">
+                                <tr><td colspan="10">Consultando productos de la base de datos...</td></tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ESTADISTICAS -->
+
+            <section class="section" id="estadisticas">
+
+                <h2>Estadísticas del inventario</h2>
+
+                <div class="graficas">
+
+                    <div class="panel grafica-card">
+
+                        <h2>Stock de productos</h2>
+
+                        <canvas id="graficaStock"></canvas>
+
+                    </div>
+
+
+                    <div class="panel grafica-card">
+
+                        <h2>Valor del inventario</h2>
+
+                        <canvas id="graficaValor"></canvas>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+    <!-- ARCHIVOS DE SUPABASE -->
+
+    <script src="public/js/config.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="public/js/supabase-client.js"></script>
+
+    <script src="public/js/guard.js"></script>
+
+    <script src="public/js/script.js"></script>
+
+</body>
+
+</html>
